@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "featuretoolkit"
+version = "0.4.2"
+description = "simple data cleaning and region blocking utilities for landslide event datasets (COOLR, GFLD)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "shyagehike" }]
+dependencies = [
+  "pandas>=2.3.1",
+  "numpy>=2.1.3",
+  "h3>=4.3.0",
+  "scipy>=1.16.2"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

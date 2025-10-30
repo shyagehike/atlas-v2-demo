@@ -1,0 +1,56 @@
+seed: 42
+
+model:
+  split_ratio: [0.75,0.15,0.10] # train, val, test
+  folds: 8 # number of folds to create
+  path:
+    pca: 'database/outputs/pca.csv' # must be csv (PCA transformed features)
+    pca_persist: 'database/records/pca.joblib' # must be joblib (persisted PCA model)
+    models: 'database/models/' # directory to save trained models
+  hyperparameters:
+    "batch_size": 16384
+    "rff_dim": 128
+    "rff_gamma": 0.05
+    "epochs": 400
+    "learning_rate": 1e-4
+    "grad_clip": 1.0
+    "mu_clip": (-20, 10) # this should automatically convert into a tuple - dont worry
+    "patience": 10
+    "plateau_patience": 5
+    "min_lr": 1e-6
+    "l2": 1e-3
+    "weight_decay": 1e-4
+    "min_delta": 5e-2
+
+features:
+  path:
+    main: "database/outputs/main.csv" # must be csv (final output)
+    spec: "database/records/spec.json" # must be json (transformation specs)
+    output: "database/outputs/output.csv" # must be csv (intermediate output, pre-transformations)
+
+  sampling:
+    scale: 30 # meters
+    K_max_events: 512
+    lambda_r: 0.8
+    lambda_t: 0.2
+    unmask_val: -99 # default value for unmasking pixels
+
+  features:
+    vsw_levels: [1,4]
+    vsw_labels: ["0-7cm","100-289cm"]
+    tileScale: 2
+    dynamic:
+      precip_sum_h: [1,6,24,72,240,720]
+      precip_max_h: [6,12,24]
+      precip_hits_h: [72]
+      runoff_h: [1,6,24,72] # both surface & subsurface
+      soil_moist_mean_h: [24,72]
+      soil_moist_anom_d: [7,90]
+      soil_moist_trend_d: [7,90]
+      pev_sum_d: 7 # also applies for moisture deficit
+      snow_h: [1,6,24]
+    static:
+      sc_depths: ['b0','b10','b100','b200']
+      vwc_depths: ['0_5cm','100_200cm']
+      vwc_quantile: "mean"
+      ndvi_anom_d: 96

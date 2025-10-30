@@ -1,0 +1,139 @@
+/* general layout */
+.stApp {
+  background:#011727;
+}
+.main .block-container {
+  padding-bottom:84px; /* ensures footer doesn’t overlap */
+}
+section[data-testid="stSidebar"] {
+  background:#0d1117ff !important;
+}
+html, body, .stApp, div, span, p, label, code, input, textarea, select {
+  font-family:'Futura','Avenir Next','Segoe UI','Helvetica Neue',Arial,sans-serif;
+  color:#eaf2fa;
+}
+h1,h2,h3,h4,h5,h6 {
+  color:#eaf2fa;
+}
+
+/* panel containers */
+div[data-testid="stVerticalBlock"]:has(.panel-anchor) {
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(234,242,250,0.08);
+  border-radius:10px;
+  padding:16px 18px;
+  margin-bottom:16px;
+}
+
+/* header (brandbar) */
+.brandbar {
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.brandbar img.logo {
+  display:inline-block !important;
+  max-height:50px !important;
+  max-width:140px !important;
+  width:auto !important;
+  height:auto !important;
+  object-fit:contain !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  pointer-events:none !important;
+  user-select:none !important;
+  flex:0 0 auto !important;
+}
+.brandbar .title {
+  flex:1 1 auto;
+  text-align:left;
+  font-size:44px;
+  line-height:1.1;
+  font-weight:900;
+  letter-spacing:.2px;
+}
+
+/* metrics (risk, subsamples, coords, date)  */
+.metric { margin:0 0 24px 0; }
+.metric .label {
+  font-size:18px;
+  color:#c8d7e1;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.metric .value {
+  font-family:'Roboto',system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
+  font-weight:900;
+  color:#eaf2fa;
+  line-height:1.1;
+}
+.metric.risk .value { font-size:64px; }
+.metric.count .value { font-size:52px; }
+.metric.coords .value { font-size:28px; }
+.metric.date .value {
+  font-size:20px;
+  font-weight:700;
+  color:#c8d7e1;
+}
+.spacer-sm { height:10px; }
+
+/* folium map container */
+.mapwrap {
+  width:100%;
+  height:650px;
+  border:0;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+/* sidebar links & logo */
+.link-chip {
+  display:inline-block;
+  padding:6px 10px;
+  margin-right:8px;
+  border:1px solid #1a4e9a;
+  border-radius:999px;
+  background:rgba(26,78,154,0.15);
+  color:#eaf2fa;
+  text-decoration:none;
+}
+.link-chip:hover {
+  background:rgba(26,78,154,0.25);
+}
+
+.sidebar-logo {
+  display:block;
+  margin:6px auto 14px auto;
+  max-width:200px;
+  max-height:80px;  /* Increased from 48px */
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border-radius:0;
+  pointer-events:none;
+  user-select:none;
+}
+
+/* inputs */
+.stSelectbox div[data-baseweb="select"] > div {
+  background:rgba(255,255,255,0.04);
+  border:1px solid #ffffff;
+  border-radius:10px;
+}
+.stFileUploader>div>div {
+  background:rgba(255,255,255,0.04) !important;
+  border:1px dashed #ffffff !important;
+}
+
+/* footer */
+.footer {
+  margin-bottom:18px;
+  padding:10px 12px;
+  text-align:center;
+  font-size:12px;
+  color:#c8d7e1;
+  background:rgba(0,0,0,0.18);
+  border-top:1px solid rgba(234,242,250,0.08);
+  border-radius:10px;
+}
+
