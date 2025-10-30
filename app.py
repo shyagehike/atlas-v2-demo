@@ -101,7 +101,7 @@ with sl.sidebar:
     upzip=sl.file_uploader('Upload a .zip (optional)',type=['zip'],help="Zip with subfolders containing 'tuple.pkl' and 'featurecollection.json'")
     root_dir=sl.text_input('Or local folder',value='database/outputs/examples',help="Folder with subfolders containing 'tuple.pkl' and 'featurecollection.json'")
     sl.caption('If both are provided, the uploaded .zip takes precedence.')
-    sl.markdown('<a class="link-chip" href="https://github.com/shyagehike/atlas-v2" target="_blank">GitHub</a>''<a class="link-chip" href="https://intwari.org" target="_blank">Website</a>',unsafe_allow_html=True)
+    sl.markdown('<a class="link-chip" href="https://github.com/shyagehike/atlas-v2-demo" target="_blank">GitHub</a>''<a class="link-chip" href="https://intwari.org" target="_blank">Website</a>',unsafe_allow_html=True)
 
 # constructing header
 hdr=sl.container()
@@ -138,7 +138,7 @@ if root.exists():
     runs=sorted([p for p in root.rglob('*') if p.is_dir() and (p/'tuple.pkl').exists() and (p/'featurecollection.json').exists()])
 if not runs:
     sl.warning("No valid subfolders found. Each run must contain 'tuple.pkl' and 'featurecollection.json'.")
-    sl.markdown('<div class="footer">© Intwari — All rights reserved.</div>',unsafe_allow_html=True)
+    sl.markdown('<div class="footer">© shyagehike, Intwari Technologies — All rights reserved. <a href="https://github.com/shyagehike/atlas-v2-demo/blob/main/LICENSE" target="_blank" style="color:#c8d7e1;text-decoration:underline;">License</a></div>',unsafe_allow_html=True)
     sl.stop()
 
 # constructing selector
@@ -217,4 +217,4 @@ with details_panel:
             sl.markdown('#### First Subsample Properties (Sample)')
             # just show first 12 keys
             sl.json({k:props[k] for k in list(props.keys())[:12]})
-sl.markdown('<div class="footer">© shyagehike, Intwari Technologies — All rights reserved.</div>',unsafe_allow_html=True)
+sl.markdown('<div class="footer">© shyagehike, Intwari Technologies — All rights reserved. <a href="https://github.com/shyagehike/atlas-v2-demo/blob/main/LICENSE" target="_blank" style="color:#c8d7e1;text-decoration:underline;">License</a></div>',unsafe_allow_html=True)

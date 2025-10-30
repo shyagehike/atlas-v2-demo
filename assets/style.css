@@ -33,6 +33,7 @@ div[data-testid="stVerticalBlock"]:has(.panel-anchor) {
 }
 .brandbar img.logo {
   display:inline-block !important;
+  margin-bottom:50px;
   max-height:50px !important;
   max-width:140px !important;
   width:auto !important;
